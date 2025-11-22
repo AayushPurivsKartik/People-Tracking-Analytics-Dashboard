@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>People Analytics Dashboard</title>
+    <meta http-equiv="refresh" content="30">
+    <style>
+        body { font-family: Arial; background: #1a1a1a; color: white; margin: 0; padding: 20px; }
+        .container { max-width: 1200px; margin: auto; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+        .card { background: #2d2d2d; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .big { font-size: 48px; margin: 10px 0; }
+        .heatmap { width: 100%; border-radius: 15px; }
+        video { width: 100%; border-radius: 15px; }
+        h1 { text-align: center; color: #00ff88; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>People Flow Analytics Dashboard</h1>
+    <div class="grid">
+        <div class="card"><h2>Entries</h2><div class="big" style="color:#00ff00">{{ entries }}</div></div>
+        <div class="card"><h2>Exits</h2><div class="big" style="color:#ff0066">{{ exits }}</div></div>
+        <div class="card"><h2>Peak Concurrent</h2><div class="big" style="color:#00ffff">{{ peak }}</div></div>
+        <div class="card"><h2>Avg Dwell Time</h2><div class="big" style="color:#ffff00">{{ avg_dwell }}</div></div>
+    </div>
+
+    <img src="/static/heatmap.png" class="heatmap" alt="Heatmap">
+    <video controls loop><source src="/static/video_output.mp4" type="video/mp4"></video>
+
+    <p style="text-align:center; margin-top:20px;">
+        Session started: {{ session_time }} | Total unique visitors: {{ total_people }}
+    </p>
+</div>
+</body>
+</html>
